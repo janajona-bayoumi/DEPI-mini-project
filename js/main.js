@@ -119,6 +119,13 @@ function renderTasks() {
     let taskElement = createTaskItem(task);
     taskList.appendChild(taskElement);
   }
+  const emptyState = document.querySelector(".empty-state");
+
+  if (tasks.length === 0) {
+    emptyState.classList.remove("d-none");
+  } else {
+    emptyState.classList.add("d-none");
+  }
 }
 
 function createTaskItem(task) {
@@ -154,7 +161,7 @@ function createTaskItem(task) {
   title.className = "fw-bold mb-2 task-title";
   title.textContent = task.title;
 
-  if (task.status === "progress") {
+  if (task.status === "progress" || task.status === "active") {
     circle.className =
       "fa-regular fa-clock fa-spin text-warning fs-4 mt-1 status-circle";
   } else if (task.status === "completed") {
