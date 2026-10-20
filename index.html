@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Taskly</title>
@@ -26,7 +26,7 @@
             data-bs-toggle="modal"
             data-bs-target="#modal-overlay"
             id="add-card-btn"
-            class="btn btn-outline-dark"
+            class="btn"
           >
             <i class="fa-solid fa-plus m-1"></i>
             Add Task
@@ -290,29 +290,20 @@
       <!-- filter & search section -->
       <section class="filter-search mt-5">
         <div class="container">
-          <div class="row justify-content-between">
+          <div class="row justify-content-between align-items-center gap-3 gap-md-0">
+            
             <div class="col-md-6">
-              <!-- counts -->
-
               <div id="filters" class="filters-content bg-secondary-subtle rounded-4 py-2 d-flex justify-content-evenly align-items-center">
-                
-                <button data-filter="all" 
-                class="filter-btn active-filter btn border-0 mb-0">
+                <button data-filter="all" class="filter-btn active-filter btn mb-0">
                   All (5)
                 </button>
-                
-                <button data-filter="active" 
-                class="filter-btn btn border-0 mb-0">
+                <button data-filter="active" class="filter-btn btn mb-0">
                   Active (3)
                 </button>
-                
-                <button data-filter="completed" 
-                class="filter-btn btn border-0 mb-0">
+                <button data-filter="completed" class="filter-btn btn mb-0">
                   Completed (2)
                 </button>
-              
               </div>
-
             </div>
 
             <div class="col-md-4">
@@ -323,6 +314,7 @@
                 placeholder="⌕ Search Tasks ..."
               />
             </div>
+
           </div>
         </div>
       </section>
@@ -459,7 +451,6 @@
           </div>
         </div>
       </section>
-
       <!-- empty state -->
       <section class="empty-state d-none">
         <div class="container">
@@ -490,12 +481,10 @@
           </div>
         </div>
       </section>
-    </main>
-
+      </main>
     <script src="js/main.js"></script>
     <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
   </body>
 </html>

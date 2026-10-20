@@ -1,7 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    box-sizing: border-box;
+
+}
+
+/*Variables*/
+:root{
+    --bg: #FAF7F2;
+    --card: #FFFFFF;
+    --text: #2D2B2A;
+    --accent: #E07A5F;
+    --completed: #81B29A;
+    --border: #E6E1DA;
+}
+body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
+}
+/* start navbar */
+.navbar{
+    background: var(--accent);
+}
+.navbar-brand{
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  font-style: italic;
+  color: var(--text);
+}
+
+#add-card-btn{
+    border: 1px solid var(--border);
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+#add-card-btn:hover{
+    background: var(--accent);
+    color: var(--card);
+}
+
+/* end navbar */
 /* Custom styling and hover effects for the task filter buttons */
 .filter-btn {
     color: #212529; 
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out !important;
     border-radius: 50rem !important;
     border: 1px solid transparent !important;
 }
@@ -9,7 +55,6 @@
 /* (Hover) */
 .filter-btn:hover {
     border: 1px solid black !important; 
-    transform: translateY(-2px);
 }
 
 .active-filter {
