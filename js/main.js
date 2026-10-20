@@ -219,36 +219,29 @@ function createTaskItem(task) {
    Function 5: Change task status
 */
 
-function changeStatus(id) {
-    const task = tasks.find(task => task.id === id);
 
+
+function changeStatus(id) {
+    const task = tasks.find(t => t.id === id);
     if (!task) return;
 
     if (task.status === "todo") {
-        task.status = "progress";
-    } else if (task.status === "progress") {
+        task.status = "active";
+    } else if (task.status === "active") {
         task.status = "completed";
     } else {
         task.status = "todo";
     }
 
-    saveTasks();
-    renderTasks();
+    if (typeof saveTasks === "function") saveTasks();
+    if (typeof renderTasks === "function") renderTasks();
     updateCounts();
 }
 
-/* Function 6: Update task counts */
-
 function updateCounts() {
     const totalCount = tasks.length;
-
-    const activeCount = tasks.filter(
-        task => task.status === "todo" || task.status === "progress"
-    ).length;
-
-    const completedCount = tasks.filter(
-        task => task.status === "completed"
-    ).length;
+    const activeCount = tasks.filter(t => t.status === "active" || t.status === "todo").length;
+    const completedCount = tasks.filter(t => t.status === "completed").length;
 
     const totalElement = document.getElementById("total-nums");
     const activeElement = document.getElementById("active-nums");
@@ -258,13 +251,17 @@ function updateCounts() {
     if (activeElement) activeElement.textContent = activeCount;
     if (completedElement) completedElement.textContent = completedCount;
 
-    const allBtn = document.querySelector('[data-filter="all"]');
-    const activeBtn = document.querySelector('[data-filter="active"]');
-    const completedBtn = document.querySelector('[data-filter="completed"]');
-
-    if (allBtn) allBtn.textContent = `All (${totalCount})`;
-    if (activeBtn) activeBtn.textContent = `Active (${activeCount})`;
-    if (completedBtn) completedBtn.textContent = `Completed (${completedCount})`;
+    const filterButtons = document.querySelectorAll("#filters .filter-btn");
+    filterButtons.forEach(btn => {
+        const filterType = btn.getAttribute("data-filter");
+        if (filterType === "all") {
+            btn.textContent = `All (${totalCount})`;
+        } else if (filterType === "active") {
+            btn.textContent = `Active (${activeCount})`;
+        } else if (filterType === "completed") {
+            btn.textContent = `Completed (${completedCount})`;
+        }
+    });
 }
 
 
